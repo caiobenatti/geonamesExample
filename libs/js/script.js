@@ -25,13 +25,14 @@ $('#btnRun').click(function() {
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				// your error code
+				console.log(textStatus, errorThrown);
 			}
 		}); 
 
-	});
+});
 
 $('#btnTZ').click(function() {
-	
+	console.log('test');
 		$.ajax({
 			url: "libs/php/getTimezone.php",
 			type: 'POST',
@@ -45,18 +46,18 @@ $('#btnTZ').click(function() {
 				console.log(result);
 							
 				if (result.status.name == "ok") {
-					$('#txtSunrise').html(result['data'][0]['sunrise']);
-					$('#txtSunset').html(result['data'][0]['sunset']);
-					$('#txtTime').html(result['data'][0]['time']);
-					$('#txtTimezone').html(result['data'][0]['timezoneId']);
+					$('#txtSunrise').html(result['data']['sunrise']);
+					$('#txtSunset').html(result['data']['sunset']);
+					$('#txtTime').html(result['data']['time']);
+					$('#txtTimezone').html(result['data']['timezoneId']);
 				}
 			
 
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				// your error code
+				console.log(textStatus, errorThrown);
 			}
 		}); 
 
-	});
-
+});
