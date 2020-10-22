@@ -50,6 +50,37 @@ $('#btnTZ').click(function() {
 					$('#txtSunset').html(result['data']['sunset']);
 					$('#txtTime').html(result['data']['time']);
 					$('#txtTimezone').html(result['data']['timezoneId']);
+					$('#txtCountryName').html(result['data']['countryName']);
+				}
+			
+
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				// your error code
+				console.log(textStatus, errorThrown);
+			}
+		}); 
+
+});
+
+$('#btnCC').click(function() {
+	console.log('test');
+		$.ajax({
+			url: "libs/php/getCountrycode.php",
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				lat: $('#selLat1').val(),
+				long: $('#selLong1').val()
+			},
+			success: function(result) {
+
+				console.log(result);
+							
+				if (result.status.name == "ok") {
+					$('#txtLanguagesCC').html(result['data']['languages']);
+					$('#txtCountryCode').html(result['data']['countryCode']);
+					$('#txtCountryname').html(result['data']['countryName']);
 				}
 			
 
