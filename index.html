@@ -10,11 +10,8 @@
 	<title>GeoNames</title>
 </head>
 <body>
-
 	<div id=”preloader”>
 		<div id='main'>
-			<div class=''>
-				<caption>Table with GeoNames</caption>
 				<table class="table">
 					<thead class="thead-light">
 					<tr>
@@ -25,7 +22,7 @@
 					</thead>
 					<tbody>
 					<tr>
-						<th scope="row">1</th>
+						<th scope="row">1. GeoName</th>
 						<td>
 							<select id="selCountry">
 								<option value="GB">Great Britain</option>
@@ -40,41 +37,64 @@
 								<option value="de">Deutsche</option>
 							</select>
 						</td>
-						<td><button class="btn btn-primary" type="submit" id="btnRun" >Submit</button></td>
+						<td><button class="btn btn-primary" type="submit" id="btnRun" onclick="btn1()">Submit</button></td>
 					  </tr>
 					  <tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td><button class="btn btn-primary" type="submit">Submit</button></td>
+						<th scope="row">2.Time Zones</th>
+						<td>
+							<select id="selLat">
+								<option value="-33.8578101">Greater London</option>
+								<option value="US">New London</option>
+								<option value="CA">London, Ontario</option>
+							</select> 
+							<select id="selLong">
+								<option value="151.2138672">Greater London</option>
+								<option value="US">New London</option>
+								<option value="CA">London, Ontario</option>
+							</select> 
+						</td>
+						<td><button class="btn btn-primary" type="submit" id="btnTZ" onclick="btn2()">Submit</button></td>
 					  </tr>
 					  <tr>
 						<th scope="row">3</th>
-						<td>Larry</td>
-						<td><button class="btn btn-primary" type="submit">Submit</button></td>
+						<td>
+							<select id="selCountry">
+								<option value="GB">Greater London</option>
+								<option value="US">New London</option>
+								<option value="CA">London, Ontario</option>
+							</select>
+					
+							<select id="selLanguage">
+								<option value="en">English</option>
+								<option value="fr">Francais</option>
+								<option value="de">Deutsche</option>
+							</select>
+						</td>
+						<td><button class="btn btn-primary" type="submit" id="btnRun2" onclick="btn3()">Submit</button></td>
 					  </tr>
-					 	 <tr>
-						<td align="right">Continent: </td>
-						<td id="txtContinent"></td>
-						</tr>
-					<tr>
-						<td align="right">Capital: </td>
-						<td id="txtCapital"></td>
-					</tr>
-					<tr>
-						<td align="right">Languages: </td>
-						<td class="bold" id="txtLanguages"></td>
-					</tr>
-					<tr>
-						<td align="right">Population: </td>
-						<td class="bold" id="txtPopulation"></td>
-					</tr>
-					<tr>
-						<td align="right">Area (km<sup>2</sup>): </td>
-						<td class="bold" id="txtArea"></td>
-						</tr>
-					</tbody>
-				  </table>
-			</div>
+					</table>
+				</tbody>	
+					<div id="results1" class='hidden'>
+						<h4 >Continent: <span class="bold" id="txtContinent"></span> </h4>
+						<h4>Capital: <span class="bold" id="txtCapital"></span> </h4>
+						<h4>Languages: <span class="bold" id="txtLanguages"></span> </h4>
+						<h4>Population: <span class="bold" id="txtPopulation"></span> </h4>
+						<h4>Area (km<sup>2</sup>): <span class="bold" id="txtArea"></span> </h4>
+					</div>
+					<div id="results2" class='hidden'>
+						<h4 >Sunrise: <span class="bold" id="txtSunrise"></span> </h4>
+						<h4>Sunset: <span class="bold" id="txtSunset"></span> </h4>
+						<h4>Time: <span class="bold" id="txtTime"></span> </h4>
+						<h4>Timezone: <span class="bold" id="txtTimezone"></span> </h4>
+					</div>
+					<div id="results3" class='hidden'>
+						<h4 >Continent: <span class="bold" id="txtContinent"></span> </h4>
+						<h4>Capital: <span class="bold" id="txtCapital"></span> </h4>
+						<h4>Languages: <span class="bold" id="txtLanguages"></span> </h4>
+						<h4>Population: <span class="bold" id="txtPopulation"></span> </h4>
+						<h4>Area (km<sup>2</sup>): <span class="bold" id="txtArea"></span> </h4>
+					</div>
+				
 		</div>
 	</div>
 
@@ -82,112 +102,8 @@
 
 <!-- Scripts -->
 	<script type="application/javascript" src="./libs/vendors/jquery-2.2.3.min.js"></script>
-	<script type="application/javascript" src="libs/js/script.js"></script>
+	<script type="application/javascript" src="./libs/js/script.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	<script src="./libs/js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-<!-- <!doctype html>
-
-<html lang="en">
-
-	<head>
-
-		<meta charset="utf-8">
-
-		<title>AJAX/PHP/CURL/JSON example</title>
-		<meta name="description" content="AJAX/PHP/CURL/JSON example">
-		<meta name="author" content="Paddy Evans">
-
-	</head>
-
-	<body>
-
-		<select id="selCountry">
-			<option value="GB">Great Britain</option>
-			<option value="FR">France</option>
-			<option value="DE">Germany</option>
-			<option value="US">USA</option>
-		</select>
-
-		<select id="selLanguage">
-			<option value="en">English</option>
-			<option value="fr">Francais</option>
-			<option value="de">Deutsche</option>
-		</select>
-
-		<button id="btnRun">Run</button>
-
-		<br><br>
-
-		<div id="divResults">
-			
-			<table>
-
-				<tr>
-					<td align="right">
-						Continent: 
-					</td>
-					<td id="txtContinent">
-						
-					</td>
-
-				</tr>
-
-				<tr>
-					<td align="right">
-						Capital: 
-					</td>
-					<td id="txtCapital">
-						
-					</td>
-
-				</tr>
-
-				<tr>
-					<td align="right">
-						Languages: 
-					</td>
-					<td id="txtLanguages">
-						
-					</td>
-
-				</tr>
-
-				<tr>
-					<td align="right">
-						Population: 
-					</td>
-					<td id="txtPopulation">
-						
-					</td>
-
-				</tr>
-
-				<tr>
-					<td align="right">
-						Area (km<sup>2</sup>): 
-					</td>
-					<td id="txtArea">
-						
-					</td>
-
-				</tr>
-
-
-			</table>
-
-		</div>
-
-		<script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
-		<script type="application/javascript" src="libs/js/script.js"></script>
-
-	</body>
-
-</html> -->

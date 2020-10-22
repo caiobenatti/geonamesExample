@@ -2,7 +2,7 @@
 
 $executionStartTime = microtime(true) / 1000;
 
-$url = 'http://api.geonames.org/countryInfoJSON?formatted=true&lang=' . $_REQUEST['lang'] . '&country=' . $_REQUEST['country'] . '&username=cbenatti&style=full';
+$url = 'http://api.geonames.org/timezoneJSON?lat=' . $_REQUEST['lat'] . '&lng=' . $_REQUEST['long'] . '&username=cbenatti';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -14,6 +14,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 
 $decode = json_decode($result, true);
+
 
 $output['status']['code'] = "200";
 $output['status']['name'] = "ok";
